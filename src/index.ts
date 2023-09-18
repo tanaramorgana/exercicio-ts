@@ -43,13 +43,22 @@ const arrayOfGrades: Grades[] = [
 ];
 
 function gradesAverage(arrayOfGrades: Grades[]): number {
-  let addGrades = 0;
-  let addWeight = 0;
-  for (const itemGrade of arrayOfGrades) {
-    addGrades += itemGrade.grade * itemGrade.weight;
-    addWeight += itemGrade.weight;
-  }
-  return addGrades / addWeight;
+  // let addGrades = 0;
+  // let addWeight = 0;
+
+  const calculateGrades: number = arrayOfGrades.reduce((acc, currentValue) => {
+    return acc + currentValue.grade * currentValue.weight;
+  }, 0);
+
+  const calculateWeights: number = arrayOfGrades.reduce((acc, currentValue) => {
+    return acc + currentValue.weight;
+  }, 0);
+
+  // for (const itemGrade of arrayOfGrades) {
+  //   addGrades += itemGrade.grade * itemGrade.weight;
+  //   addWeight += itemGrade.weight;
+  // }
+  return calculateGrades / calculateWeights;
 }
 
 console.log(gradesAverage(arrayOfGrades));
