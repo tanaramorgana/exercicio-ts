@@ -1,6 +1,6 @@
 export interface Grades {
-  nota: number;
-  peso: number;
+  grade: number;
+  weight: number;
 }
 
 export interface Wallet {

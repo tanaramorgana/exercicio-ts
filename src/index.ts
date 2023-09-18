@@ -13,52 +13,53 @@ import {
 
 function isApproved(n1: number, n2: number) {
   const average = (n1 + n2) / 2;
-  const approved = average >= 6;
 
   return {
-    media: average,
-    apovado: approved,
+    media: (n1 + n2) / 2,
+    apovado: average >= 6,
   };
 }
 
 console.log(isApproved(8, 9));
 
-// // 2. Crie uma função que receba uma lista de objetos contendo nota e
-// // peso, realize a média das notas considerando o peso. Exemplos:
-// // Lista com 2 notas: (N1*P1) + (N2*P2) / 2 = Resultado
-// // Lista com 3 notas: (N1*P1) + (N2*P2) + (N3*P3) / 3 = Resultado
+// 2. Crie uma função que receba uma lista de objetos contendo nota e
+// peso, realize a média das notas considerando o peso. Exemplos:
+// Lista com 2 notas: (N1*P1) + (N2*P2) / 2 = Resultado
+// Lista com 3 notas: (N1*P1) + (N2*P2) + (N3*P3) / 3 = Resultado
 
 const arrayOfGrades: Grades[] = [
   {
-    nota: 8,
-    peso: 1,
+    grade: 8,
+    weight: 1,
   },
   {
-    nota: 7,
-    peso: 2,
+    grade: 7,
+    weight: 2,
   },
   {
-    nota: 6,
-    peso: 3,
+    grade: 6,
+    weight: 3,
   },
 ];
 
 function gradesAverage(arrayOfGrades: Grades[]): number {
   let addGrades = 0;
-  for (const grade of arrayOfGrades) {
-    addGrades += grade.nota * grade.peso;
+  let addWeight = 0;
+  for (const itemGrade of arrayOfGrades) {
+    addGrades += itemGrade.grade * itemGrade.weight;
+    addWeight += itemGrade.weight;
   }
-  return addGrades / arrayOfGrades.length;
+  return addGrades / addWeight;
 }
 
 console.log(gradesAverage(arrayOfGrades));
 
-// // 3. Crie um programa que simule uma carteira de dinheiro. Este
-// // programa vai precisar ter uma carteira contendo saldo, transações
-// // de entrada e saídas. Ou seja, será um objeto com estas
-// // propriedades. Depois crie uma função para lançar uma entrada e
-// // uma saída. Caso ao lançar uma saída e não tiver saldo, precisa dar
-// // um erro ou avisar.
+// 3. Crie um programa que simule uma carteira de dinheiro. Este
+// programa vai precisar ter uma carteira contendo saldo, transações
+// de entrada e saídas. Ou seja, será um objeto com estas
+// propriedades. Depois crie uma função para lançar uma entrada e
+// uma saída. Caso ao lançar uma saída e não tiver saldo, precisa dar
+// um erro ou avisar.
 
 const wallet: Wallet = {
   balance: 100,
@@ -112,12 +113,12 @@ function excludeProduct(product: string): void {
 
 excludeProduct("banana");
 
-// // 5. Crie um programa para mostrar informações de usuários (User) de
-// // uma empresa. Crie o tipo User com as seguintes propriedades:
-// // nome, idade, ocupação e salário (opcional). Caso o salário do
-// // usuário não seja informado, mostre o valor “N/A”. Exemplo:
-// // a. “Daphne, 23 anos, analista de TI, salário R$ 1000”
-// // b. “Daphne, 23 anos, analista de TI, salário N/A”
+// 5. Crie um programa para mostrar informações de usuários (User) de
+// uma empresa. Crie o tipo User com as seguintes propriedades:
+// nome, idade, ocupação e salário (opcional). Caso o salário do
+// usuário não seja informado, mostre o valor “N/A”. Exemplo:
+// a. “Daphne, 23 anos, analista de TI, salário R$ 1000”
+// b. “Daphne, 23 anos, analista de TI, salário N/A”
 
 const users: User[] = [
   {
