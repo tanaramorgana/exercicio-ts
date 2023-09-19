@@ -33,7 +33,7 @@ const arrayOfGrades: Grades[] = [
     weight: 1,
   },
   {
-    grade: 7,
+    grade: 9,
     weight: 2,
   },
   {
@@ -46,13 +46,14 @@ function gradesAverage(arrayOfGrades: Grades[]): number {
   // let addGrades = 0;
   // let addWeight = 0;
 
-  const calculateGrades: number = arrayOfGrades.reduce((acc, currentValue) => {
+  const calculateGrades = arrayOfGrades.reduce((acc, currentValue) => {
     return acc + currentValue.grade * currentValue.weight;
   }, 0);
 
-  const calculateWeights: number = arrayOfGrades.reduce((acc, currentValue) => {
-    return acc + currentValue.weight;
-  }, 0);
+  const calculateWeights = arrayOfGrades.reduce(
+    (acc, currentValue) => acc + currentValue.weight,
+    0
+  );
 
   // for (const itemGrade of arrayOfGrades) {
   //   addGrades += itemGrade.grade * itemGrade.weight;
@@ -101,7 +102,7 @@ console.log(transaction("entrada", 200));
 const products: Product[] = [];
 
 function listProducts(products: Product[]): void {
-  products.map((product) => {
+  products.forEach((product) => {
     console.log(product);
   });
 }
@@ -120,7 +121,7 @@ function excludeProduct(product: string): void {
   products.splice(findProduct, 1);
 }
 
-excludeProduct("banana");
+excludeProduct("pera"); //validar
 
 // 5. Crie um programa para mostrar informações de usuários (User) de
 // uma empresa. Crie o tipo User com as seguintes propriedades:
